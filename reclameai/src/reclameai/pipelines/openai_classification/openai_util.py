@@ -12,12 +12,20 @@ with KedroSession.create(project_path=os.getcwd()) as session:
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-def count_tokens(prompt, model="gpt-4o"):
-    """Conta o número de tokens no prompt usando tiktoken."""
+def count_tokens(text, model="gpt-4o"):
+    """Conta o número de tokens no texto usando tiktoken."""
     encoding = tiktoken.encoding_for_model(model)
-    return len(encoding.encode(prompt))
+    return len(encoding.encode(text))
 
-def send_request(prompt, model="gpt-4o", report_id=None):
+def calculate_cost(prompt_tokens, response_tokens, cached_tokens, model_prices):
+    """Calcula o custo total com base nos tokens e nos preços."""
+    input_cost = prompt_tokens * model_prices["input"]
+    cached_input_cost = cached_tokens * model_prices["cached_input"]
+    output_cost = response_tokens * model_prices["output"]
+    total_cost = input_cost + cached_input_cost + output_cost
+    return total_cost
+
+def send_request(prompt, model="gpt-4o", report_id=None, cached_tokens=0):
     """Envia o prompt para a API da OpenAI, conta os tokens e calcula o custo."""
     # Conta os tokens do prompt
     prompt_tokens = count_tokens(prompt, model)
@@ -33,13 +41,13 @@ def send_request(prompt, model="gpt-4o", report_id=None):
     response_tokens = count_tokens(resposta, model)
 
     # Calcula o custo total
-    total_tokens = prompt_tokens + response_tokens
-    cost = total_tokens * params["token_prices"][model]
+    model_prices = params["token_prices"][model]
+    cost = calculate_cost(prompt_tokens, response_tokens, cached_tokens, model_prices)
 
     report_content = (
         f"Tokens usados no prompt: {prompt_tokens}\n"
         f"Tokens usados na resposta: {response_tokens}\n"
-        f"Tokens totais: {total_tokens}\n"
+        f"Tokens em cache: {cached_tokens}\n"
         f"Custo estimado: ${cost:.6f}\n"
     )
 

@@ -12,7 +12,10 @@ categorias:
 
 openai:
   token_prices:
-    gpt-4o: 0.00003  # $0.03 por 1000 tokens
-    gpt-3.5-turbo: 0.000002  # $0.002 por 1000 tokens
+    gpt-4o:
+      input: 0.00000250  # $2.50 por 1.000.000 tokens de entrada
+      cached_input: 0.00000125  # $1.25 por 1.000.000 tokens de entrada em cache
+      output: 0.00001000  # $10.00 por 1.000.000 tokens de saída
+    gpt-3.5-turbo: 0.000002  # $0.002 por 1.000 tokens
   output_dir: "data/08_reporting"  # Diretório para salvar relatórios
   consolidated_filename: "relatorio_consolidado.txt"  # Nome do relatório consolidado
