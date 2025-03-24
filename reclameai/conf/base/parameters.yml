@@ -1,0 +1,18 @@
+categorias:
+  - Problema em saque
+  - Atendimento ruim
+  - Fraude bancária
+  - Cobrança indevida
+  - Cartão clonado
+  - PIX enviado errado
+  - Problema com fatura do cartão
+  - Problema com limite de crédito
+  - Problema no acesso ao app
+  - Débito não autorizado
+
+openai:
+  token_prices:
+    gpt-4o: 0.00003  # $0.03 por 1000 tokens
+    gpt-3.5-turbo: 0.000002  # $0.002 por 1000 tokens
+  output_dir: "data/08_reporting"  # Diretório para salvar relatórios
+  consolidated_filename: "relatorio_consolidado.txt"  # Nome do relatório consolidado

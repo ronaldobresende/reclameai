@@ -1,0 +1,23 @@
+# Here you can define all your datasets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+nps_mock_data:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/nps_mock.csv
+
+classified_nps_data:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/reclamacoes_classificadas.csv
+  save_args:
+    index: False
+  load_args:
+    encoding: ISO-8859-1
+
+histogram_output:
+  type: matplotlib.MatplotlibWriter
+  filepath: data/08_reporting/histogram_output.png
+
+
+
+

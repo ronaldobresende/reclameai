@@ -1,0 +1,113 @@
+Ocorrencia,Classificacao,Cliente,Documento,Data,Etapa,Relato,categoria
+2001,Problema em saque,Ana Vitória Lima,954.813.602-33,2025-01-26,1,"2025-01-26 - Cliente Ana Vitória Lima 954.813.602-33 relata problema em saque.
+### Cliente foi informado da resolução e recebeu desculpas pelo transtorno.
+### Cliente ameaça abrir reclamação no Banco Central caso não haja resposta.",Problema em saque
+2002,Atendimento ruim,Maria Julia Fogaça,493.017.685-93,2025-03-17,1,"2025-03-17 - Cliente Maria Julia Fogaça 493.017.685-93 relata atendimento ruim.
+### Cliente ameaça abrir reclamação no Banco Central caso não haja resposta.
+### Gerente informa que encaminhou a solicitação ao setor responsável.
+### Aguardando retorno do cliente para dar continuidade ao atendimento.
+### Cliente foi informado da resolução e recebeu desculpas pelo transtorno.
+### Banco esclarece dúvidas e reforça os próximos passos para o cliente.
+### Equipe técnica identifica um problema no sistema e trabalha na correção.",Atendimento ruim
+2003,Fraude bancária,Dr. Gustavo Rezende,762.491.853-64,2025-02-25,1,"2025-02-25 - Cliente Dr. Gustavo Rezende 762.491.853-64 relata fraude bancária.
+### Cliente foi informado da resolução e recebeu desculpas pelo transtorno.
+### Gerente informa que encaminhou a solicitação ao setor responsável.
+### Cliente afirma que já forneceu os documentos e pede uma solução rápida.
+### Caso encaminhado para análise jurídica devido à complexidade.
+### Equipe técnica identifica um problema no sistema e trabalha na correção.",Fraude bancária
+2004,Problema em saque,Vitória Almeida,905.736.812-95,2025-01-07,1,"2025-01-07 - Cliente Vitória Almeida 905.736.812-95 relata problema em saque.
+### Gerente informa que encaminhou a solicitação ao setor responsável.
+### Equipe técnica identifica um problema no sistema e trabalha na correção.
+### Cliente afirma que já forneceu os documentos e pede uma solução rápida.
+### Cliente entra em contato cobrando uma resposta definitiva.
+### Cliente ameaça abrir reclamação no Banco Central caso não haja resposta.",Problema em saque
+2005,Atendimento ruim,Ana Sophia Lima,210.794.368-04,2025-01-25,1,"2025-01-25 - Cliente Ana Sophia Lima 210.794.368-04 relata atendimento ruim.
+### Caso encaminhado para análise jurídica devido à complexidade.
+### Equipe técnica identifica um problema no sistema e trabalha na correção.
+### Aguardando retorno do cliente para dar continuidade ao atendimento.
+### Cliente afirma que já forneceu os documentos e pede uma solução rápida.
+### Solicitado ao cliente que envie documentos comprobatórios.",Atendimento ruim
+2006,Cobrança indevida,Ana Lívia da Mota,637.158.402-26,2025-03-18,1,"2025-03-18 - Cliente Ana Lívia da Mota 637.158.402-26 relata cobrança indevida.
+### Banco esclarece dúvidas e reforça os próximos passos para o cliente.
+### Caso encaminhado para análise jurídica devido à complexidade.
+### Cliente afirma que já forneceu os documentos e pede uma solução rápida.
+### Cliente ameaça abrir reclamação no Banco Central caso não haja resposta.
+### Cliente entra em contato cobrando uma resposta definitiva.
+### Aguardando retorno do cliente para dar continuidade ao atendimento.",Cobrança indevida
+2007,Cartão clonado,Emanuelly Carvalho,573.492.860-74,2025-03-20,1,"2025-03-20 - Cliente Emanuelly Carvalho 573.492.860-74 relata cartão clonado.
+### Cliente foi informado da resolução e recebeu desculpas pelo transtorno.
+### Cliente afirma que já forneceu os documentos e pede uma solução rápida.",Cartão clonado
+2008,PIX enviado errado,Helena Campos,263.089.741-96,2025-03-11,1,"2025-03-11 - Cliente Helena Campos 263.089.741-96 relata pix enviado errado.
+### Caso encaminhado para análise jurídica devido à complexidade.
+### Gerente informa que encaminhou a solicitação ao setor responsável.
+### Cliente afirma que já forneceu os documentos e pede uma solução rápida.
+### Cliente foi informado da resolução e recebeu desculpas pelo transtorno.
+### Banco esclarece dúvidas e reforça os próximos passos para o cliente.
+### Equipe técnica identifica um problema no sistema e trabalha na correção.",PIX enviado errado
+2009,Problema com fatura do cartão,João Lucas Dias,804.912.376-69,2025-02-22,1,"2025-02-22 - Cliente João Lucas Dias 804.912.376-69 relata problema com fatura do cartão.
+### Solicitado ao cliente que envie documentos comprobatórios.
+### Cliente foi informado da resolução e recebeu desculpas pelo transtorno.
+### Equipe técnica identifica um problema no sistema e trabalha na correção.",Problema com fatura do cartão
+2010,PIX enviado errado,João Pedro das Neves,691.703.485-10,2025-03-12,1,"2025-03-12 - Cliente João Pedro das Neves 691.703.485-10 relata pix enviado errado.
+### Cliente foi informado da resolução e recebeu desculpas pelo transtorno.
+### Aguardando retorno do cliente para dar continuidade ao atendimento.
+### Cliente entra em contato cobrando uma resposta definitiva.
+### Cliente afirma que já forneceu os documentos e pede uma solução rápida.",PIX enviado errado
+2011,Problema com limite de crédito,Olivia Fernandes,970.826.514-49,2025-02-08,1,"2025-02-08 - Cliente Olivia Fernandes 970.826.514-49 relata problema com limite de crédito.
+### Banco esclarece dúvidas e reforça os próximos passos para o cliente.
+### Solicitado ao cliente que envie documentos comprobatórios.
+### Cliente ameaça abrir reclamação no Banco Central caso não haja resposta.
+### Cliente foi informado da resolução e recebeu desculpas pelo transtorno.
+### Equipe técnica identifica um problema no sistema e trabalha na correção.",Problema com limite de crédito
+2012,Atendimento ruim,Sr. Vitor Gabriel Porto,547.290.681-49,2025-01-30,1,"2025-01-30 - Cliente Sr. Vitor Gabriel Porto 547.290.681-49 relata atendimento ruim.
+### Caso encaminhado para análise jurídica devido à complexidade.
+### Gerente informa que encaminhou a solicitação ao setor responsável.
+### Solicitado ao cliente que envie documentos comprobatórios.
+### Cliente entra em contato cobrando uma resposta definitiva.
+### Equipe técnica identifica um problema no sistema e trabalha na correção.",Atendimento ruim
+2013,Atendimento ruim,Sophie Barros,257.089.346-38,2025-02-24,1,"2025-02-24 - Cliente Sophie Barros 257.089.346-38 relata atendimento ruim.
+### Equipe técnica identifica um problema no sistema e trabalha na correção.
+### Cliente ameaça abrir reclamação no Banco Central caso não haja resposta.
+### Solicitado ao cliente que envie documentos comprobatórios.
+### Cliente foi informado da resolução e recebeu desculpas pelo transtorno.
+### Aguardando retorno do cliente para dar continuidade ao atendimento.
+### Banco esclarece dúvidas e reforça os próximos passos para o cliente.",Atendimento ruim
+2014,Problema no acesso ao app,Gabrielly da Costa,506.427.183-26,2025-02-10,1,"2025-02-10 - Cliente Gabrielly da Costa 506.427.183-26 relata problema no acesso ao app.
+### Cliente afirma que já forneceu os documentos e pede uma solução rápida.
+### Cliente ameaça abrir reclamação no Banco Central caso não haja resposta.
+### Caso encaminhado para análise jurídica devido à complexidade.
+### Equipe técnica identifica um problema no sistema e trabalha na correção.",Problema no acesso ao app
+2015,Débito não autorizado,Caio Almeida,341.295.078-50,2025-02-15,1,"2025-02-15 - Cliente Caio Almeida 341.295.078-50 relata débito não autorizado.
+### Aguardando retorno do cliente para dar continuidade ao atendimento.
+### Solicitado ao cliente que envie documentos comprobatórios.
+### Banco esclarece dúvidas e reforça os próximos passos para o cliente.
+### Caso encaminhado para análise jurídica devido à complexidade.",Débito não autorizado
+2016,Atendimento ruim,Maria Fernanda Novaes,816.390.475-57,2025-01-12,1,"2025-01-12 - Cliente Maria Fernanda Novaes 816.390.475-57 relata atendimento ruim.
+### Gerente informa que encaminhou a solicitação ao setor responsável.
+### Caso encaminhado para análise jurídica devido à complexidade.
+### Aguardando retorno do cliente para dar continuidade ao atendimento.
+### Cliente foi informado da resolução e recebeu desculpas pelo transtorno.
+### Banco esclarece dúvidas e reforça os próximos passos para o cliente.",Atendimento ruim
+2017,Problema com limite de crédito,Vicente Correia,316.287.450-53,2025-02-05,1,"2025-02-05 - Cliente Vicente Correia 316.287.450-53 relata problema com limite de crédito.
+### Equipe técnica identifica um problema no sistema e trabalha na correção.
+### Banco esclarece dúvidas e reforça os próximos passos para o cliente.
+### Cliente ameaça abrir reclamação no Banco Central caso não haja resposta.
+### Caso encaminhado para análise jurídica devido à complexidade.
+### Solicitado ao cliente que envie documentos comprobatórios.",Problema com limite de crédito
+2018,PIX enviado errado,Isaac Martins,815.906.437-39,2025-01-14,1,"2025-01-14 - Cliente Isaac Martins 815.906.437-39 relata pix enviado errado.
+### Cliente foi informado da resolução e recebeu desculpas pelo transtorno.
+### Aguardando retorno do cliente para dar continuidade ao atendimento.
+### Cliente ameaça abrir reclamação no Banco Central caso não haja resposta.",PIX enviado errado
+2019,Problema no acesso ao app,Samuel Correia,640.587.391-93,2025-02-24,1,"2025-02-24 - Cliente Samuel Correia 640.587.391-93 relata problema no acesso ao app.
+### Cliente entra em contato cobrando uma resposta definitiva.
+### Cliente ameaça abrir reclamação no Banco Central caso não haja resposta.
+### Gerente informa que encaminhou a solicitação ao setor responsável.
+### Equipe técnica identifica um problema no sistema e trabalha na correção.
+### Caso encaminhado para análise jurídica devido à complexidade.
+### Banco esclarece dúvidas e reforça os próximos passos para o cliente.",Problema no acesso ao app
+2020,Problema em saque,Enrico Moreira,572.348.169-09,2025-01-06,1,"2025-01-06 - Cliente Enrico Moreira 572.348.169-09 relata problema em saque.
+### Gerente informa que encaminhou a solicitação ao setor responsável.
+### Cliente entra em contato cobrando uma resposta definitiva.
+### Caso encaminhado para análise jurídica devido à complexidade.
+### Cliente afirma que já forneceu os documentos e pede uma solução rápida.
+### Cliente ameaça abrir reclamação no Banco Central caso não haja resposta.",Problema em saque
