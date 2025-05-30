@@ -7,4 +7,5 @@ notebook
 openai
 matplotlib>=3.0
 tiktoken
+python-docx
 
