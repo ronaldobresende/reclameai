@@ -2,7 +2,9 @@ import awswrangler as wr
 import re
 import pandas as pd
 from openai_util import send_request
-from prompt_util import create_classification_prompt    
+from prompt_util import create_classification_prompt   
+from utils import save_parquet_and_update_glue 
+from utils import load_yaml_s3
 
 def load_data(database, table, partition_filter):
     """
@@ -46,13 +48,13 @@ def group_reports(df: pd.DataFrame) -> pd.DataFrame:
         lambda x: "\n### ".join(x.astype(str)) if x.name == "relato" else x.iloc[0]
     )
 
-def classify_complaint(historico, categorias):
+def classify_complaint(historico, categorias, config):
     """Classifica uma única ocorrência com base no histórico completo e gera um resumo."""
     # Cria o prompt para classificar e resumir
-    prompt = create_classification_prompt(historico, categorias)  
+    prompt = create_classification_prompt(historico, categorias, config["prompt_classificacao"])
     
     # Envia o prompt para a API da OpenAI
-    openai_response = send_request(prompt)
+    openai_response = send_request(prompt,config["openai"]["model"], config["openai"]["temperature"], config["openai"]["top_p"])
     response = openai_response.strip()
 
     # Divide a resposta em classificação e resumo
@@ -65,46 +67,39 @@ def classify_complaint(historico, categorias):
 
     return classification, summary
 
-def classify_complaints(df: pd.DataFrame, categorias: list) -> pd.DataFrame:
+def classify_complaints(df: pd.DataFrame, categorias: list, config) -> pd.DataFrame:
     """Classifica as reclamações e gera resumos usando a API da OpenAI."""
     
     # Aplica a função de classificação e resumo ao DataFrame
-    results = df["relato"].apply(lambda relato: classify_complaint(relato, categorias))
+    results = df["relato"].apply(lambda relato: classify_complaint(relato, categorias,config))
     
     # Descompacta os resultados em duas colunas: 'categoria' e 'resumo'
     df["categoria"], df["resumo"] = zip(*results)
 
     return df
 
-import awswrangler as wr
-
 def save_to_glue_catalog(df: pd.DataFrame, database: str, table: str, s3_path: str):
-    """
-    Salva o DataFrame no S3 e atualiza o catálogo do Glue.
-    """
-    try:
-        # Salvando o DataFrame no S3 e atualizando o catálogo do Glue
-        wr.s3.to_parquet(
-            df=df,
-            path=s3_path,  
-            dataset=True,
-            database=database,
-            table=table,
-            mode="overwrite",  
-            partition_cols=["anomesdia"]  # Atualiza as partições automaticamente
-        )
-        print(f"Dados salvos com sucesso na tabela {database}.{table} e catálogo atualizado.")
-    except Exception as e:
-        raise Exception(f"Erro ao salvar os dados no Glue Catalog: {str(e)}")
-
+    save_parquet_and_update_glue(
+        df=df,
+        bucket=s3_path,
+        prefix="tabela_classificada", 
+        database=database,
+        table=table,
+        partition_col="anomesdia"
+    )    
+    
 def lambda_handler(event, context):
     """
     Função Lambda para carregar dados do Athena e retornar um DataFrame.
     """
+    # Caminho no S3 onde os dados serão salvos
+    s3_path = "s3-768471683026-sor"
+
     # Configurações do Athena e Glue Catalog
     database = "db_reclameai"
     table = "tb_reclamacoes_original"
     partition_filter = "anomesdia >= '20241001'"
+    config = load_yaml_s3(s3_path + "/parameters.yaml")
 
     try:
         # Carregando os dados usando a função load_data
@@ -117,35 +112,25 @@ def lambda_handler(event, context):
         df = group_reports(df)  
 
         # Lista de categorias
-        categorias = [
-            "Problema em saque",
-            "Atendimento ruim",
-            "Fraude bancária",
-            "Cobrança indevida",
-            "Cartão clonado",
-            "PIX enviado errado",
-            "Problema com fatura do cartão",
-            "Problema com limite de crédito",
-            "Problema no acesso ao app",
-            "Débito não autorizado"
-        ]
+        categorias = config["categorias"]
+        print("Categorias carregadas do YAML:", categorias)
 
         # Chamando a função classify_complaints com o DataFrame e a lista de categorias
-        df_classificado = classify_complaints(df, categorias)
+        df_classificado = classify_complaints(df, categorias, config)
 
-        # return {
-        #     "statusCode": 200,
-        #     "body": df_classificado.to_json(orient="records")
-        # }
-
-        # Caminho no S3 onde os dados serão salvos
-        s3_path = "s3://s3-768471683026-sor/"
+        anomesdia = pd.to_datetime(df['data'].iloc[0]).strftime('%Y%m%d')
 
         # Salvar o DataFrame classificado no Glue Catalog
-        save_to_glue_catalog(df_classificado, "db_reclameai", "reclamacoes_classificadas", s3_path)        
+        save_parquet_and_update_glue(
+            df=df_classificado,
+            anomesdia=anomesdia,
+            bucket=s3_path,
+            prefix="tabela_classificada", 
+            database="db_reclameai",
+            table="reclamacoes_classificadas",
+            partition_col="anomesdia"
+        )          
 
         return df_classificado
-
-
     except Exception as e:
         raise Exception(f"Erro ao processar os dados: {str(e)}")

@@ -1,0 +1,25 @@
+CREATE EXTERNAL TABLE `reclamacoes_classificadas`(
+  `ocorrencia` string, 
+  `classificacao` string, 
+  `cliente` string, 
+  `documento` string, 
+  `data` string, 
+  `etapa` string, 
+  `relato` string, 
+  `categoria` string, 
+  `resumo` string)
+PARTITIONED BY ( 
+  `anomesdia` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  's3://s3-768471683026-sor/tabela_classificada/'
+TBLPROPERTIES (
+  'classification'='parquet', 
+  'compressionType'='snappy', 
+  'projection.enabled'='false', 
+  'typeOfData'='file')

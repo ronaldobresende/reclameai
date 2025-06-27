@@ -10,8 +10,9 @@ try:
     df = lambda_handler(event, context)
 
     # Convertendo o DataFrame para JSON
-    data = df.to_dict(orient="records")
-    print(json.dumps(data, indent=4))
+    #data = df.to_dict(orient="records")
+    #print(json.dumps(data, indent=4))
+    print("Dados processados com sucesso!")
 
 except Exception as e:
     print(f"Erro ao executar a função: {str(e)}")
